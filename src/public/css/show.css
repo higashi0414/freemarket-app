@@ -1,0 +1,249 @@
+/* =====================
+   商品詳細全体レイアウト
+===================== */
+.item-detail {
+  max-width: 980px;
+  margin: 32px auto;
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.item-detail__thumb img {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+}
+
+.item-detail__title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.item-detail__brand {
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.item-detail__price {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 8px 0 12px;
+}
+
+/* =====================
+   購入ボタン（横長）
+===================== */
+.item-detail__buy {
+  display: block;
+  width: 100%;
+  background-color: #ff5555;
+  color: #fff;
+  text-align: center;
+  padding: 12px 0;
+  border-radius: 4px;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 16px 0;
+  transition: 0.3s;
+}
+
+.item-detail__buy:hover {
+  background-color: #e14c4c;
+}
+
+/* =====================
+   商品情報・バッジ
+===================== */
+.item-detail__section {
+  margin-top: 20px;
+}
+
+.item-detail__section--info {
+  margin-top: 28px;
+  line-height: 1.8;
+}
+
+.item-detail__info-row {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+  margin-top: 18px;
+}
+
+.item-detail__label {
+  font-weight: 700;         /* カテゴリーと状態を同じ太さに */
+  color: #000;
+  min-width: 90px;          /* ラベル幅を固定して整列 */
+  line-height: 1.6;
+}
+
+.item-detail__text {
+  color: #333;
+  line-height: 1.6;
+}
+
+.item-detail__badges {
+  display: flex;
+  gap: 10px;                /* タグ同士の間隔を少し広げる */
+  flex-wrap: wrap;
+  align-items: center;      /* タグの縦位置を中央に */
+}
+
+.item-detail__condition {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+}
+
+.item-detail__info-row:nth-of-type(2) {
+  gap: 40px;
+}
+
+.badge {
+  display: inline-block;
+  background: #eee;
+  color: #333;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* =====================
+   コメント表示
+===================== */
+.comment {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.comment__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ddd;
+  flex-shrink: 0;
+}
+
+.comment__content {
+  flex: 1;
+}
+
+.comment__author {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: #000;
+}
+
+.comment__box {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 10px 12px;
+  color: #333;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+/* =====================
+   コメントフォーム
+===================== */
+.comment-form textarea {
+  width: 100%;
+  min-height: 120px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  padding: 10px;
+  resize: vertical;
+  background: #fff;
+}
+
+.comment-form__submit {
+  display: block;
+  width: 100%;
+  background-color: #ff5555;
+  color: #fff;
+  text-align: center;
+  border: none;
+  padding: 12px 0;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 12px;
+}
+
+.comment-form__submit:hover {
+  background-color: #e14c4c;
+}
+
+/* =====================
+   アイコンエリア（星＆コメント）
+===================== */
+.item-detail__icons {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin: 12px 0;
+}
+
+.like-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.like-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.star {
+  font-size: 32px;
+  color: #ccc;
+  transition: 0.3s;
+  display: block;
+}
+
+.star.active {
+  color: #ff5555;
+}
+
+.like-btn:hover .star {
+  color: #ff5555;
+}
+
+.like-count {
+  font-size: 14px;
+  color: #333;
+  margin-top: 4px;  /* 星と数字の間のすき間 */
+}
+
+.comment-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 20px;
+  color: #333;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+/* =====================
+   レスポンシブ対応
+===================== */
+@media (max-width: 720px) {
+  .item-detail {
+    grid-template-columns: 1fr;
+  }
+}

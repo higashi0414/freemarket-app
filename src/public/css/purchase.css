@@ -1,0 +1,232 @@
+.purchase-container {
+  max-width: 980px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+.purchase-wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+}
+
+.purchase-left .purchase-item {
+  margin-bottom: 10px;
+}
+
+.purchase-item {
+  background: transparent;
+  box-shadow: none;
+  padding: 0; 
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.purchase-item__thumb img {
+  width: 150px;
+  height: auto;
+  display: block;
+}
+
+.purchase-item__name {
+  font-size: 25px;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.purchase-item__price {
+  font-size: 25px;
+  font-weight: 700;
+  color: #000;
+  margin:  0 0 6px;
+}
+
+.section-title {
+  font-weight: bold;
+  margin: 16px 0 30px;
+}
+
+.purchase-address {
+  position: relative;
+  padding-top: 4px;
+}
+
+.purchase-address p {
+  margin-left: 40px;
+}
+
+.address-edit {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #2E7DDD;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.address-edit:hover {
+    text-decoration: underline;
+}
+
+.purchase-right {
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+.purchase-method select {
+  width: 250px;
+  height: 30px;
+  padding: 6px 10px;
+  font-size: 13px;
+  margin-left: 40px;
+}
+
+
+.summary-box {
+  border: 1px solid #333333;
+  border-radius: 6px;
+  margin-bottom: 40px;
+  background: #fff;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+  height: 15px;
+  border-bottom: 1px solid #333333;
+}
+
+.summary-row span {
+  text-align: left;
+}
+
+.summary-row span:last-child {
+  text-align: right;
+}
+
+.summary-row:last-child {
+  border-bottom: none;
+}
+
+.form-actions {
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.btn--primary {
+  display: block;
+  width: 280px;
+  height: 44px;
+  line-height: 44px;
+  margin: 16px auto 0;
+  background: var(--color-primary, #ff5555);
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  box-shadow: none;
+  padding: 0;
+}
+
+.sep {
+    border: none;
+    height: 1px;
+    background: #333333;
+    margin: 24px 0;
+}
+
+
+/* =========================
+   PC (1400px～)
+========================= */
+@media (min-width: 1400px) {
+  .purchase-container {
+    max-width: 1100px;
+    padding: 0 24px;
+  }
+
+  .purchase-item__thumb img {
+    width: 200px;
+  }
+
+  .purchase-item__name,
+  .purchase-item__price {
+    font-size: 28px;
+  }
+
+  .btn--primary {
+    width: 320px;
+    height: 48px;
+    font-size: 18px;
+  }
+}
+
+/* =========================
+   タブレット (768～850px)
+========================= */
+@media (max-width: 850px) and (min-width: 768px) {
+  .purchase-wrapper {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .purchase-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .purchase-item__thumb{
+    margin-top: 80px;
+  }
+
+  .purchase-item__thumb img {
+    width: 60%;
+    height: auto;
+  }
+
+  .purchase-item__name,
+  .purchase-item__price {
+    font-size: 22px;
+  }
+
+  .purchase-right {
+    margin-top: 16px;
+  }
+
+  .btn--primary {
+    width: 100%;
+    font-size: 16px;
+  }
+
+
+.purchase-container {
+    margin-top: 80px;
+  }
+
+
+  .purchase-method select {
+    width: 100%;
+    height: auto;
+    min-height: 40px;
+    padding: 8px 12px;
+    font-size: 14px;
+    line-height: 1.4;
+    box-sizing: border-box;
+  }
+
+  .summary-box {
+    margin-top: 16px;
+  }
+}
+
+

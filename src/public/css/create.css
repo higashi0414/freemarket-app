@@ -1,0 +1,171 @@
+.create-wrapper {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.create-title {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 40px 0 4px;
+  color: #666666;
+}
+
+.sep {
+  border: none;
+  height: 1px;
+  background: #c8c8c8;
+  margin: 4px 0 20px;
+}
+
+.create-form .form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+textarea.form-input {
+  resize: vertical;
+}
+
+.form-actions {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn--primary {
+  display: block;
+  width: 550px;
+  margin: 0 auto;
+  background: var(--color-primary, #ff5555);
+  color: #fff;
+}
+
+.image-upload {
+  border: 2px dashed #ccc;
+  border-radius: 6px;
+  padding: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+.image-upload__input {
+  display: none;
+}
+.image-upload__label {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #fff;
+  border: 1px solid #ff5555;
+  border-radius: 4px;
+  color: #ff5555;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.category-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.category-options label {
+  border: 1px solid #ff5555;
+  color: #ff5555;
+  border-radius: 20px;
+  padding: 6px 12px;
+  font-size: 14px;
+  color: #ff5555;
+  cursor: pointer;
+}
+.category-options input {
+  display: none;
+}
+.category-option:has(input:checked) {
+  background-color: #ff5555;
+  color: #fff;
+}
+
+/* =========================
+   PC (1400px～)
+========================= */
+@media (min-width: 1400px) {
+  .create-wrapper {
+    max-width: 700px;
+    padding: 32px;
+  }
+
+  .create-title {
+    font-size: 28px;
+  }
+
+  .section-title {
+    font-size: 22px;
+  }
+
+  .btn--primary {
+    width: 600px;
+  }
+}
+
+/* =========================
+   タブレット (768～850px)
+========================= */
+@media (max-width: 850px) and (min-width: 768px) {
+  .create-wrapper {
+    max-width: 90%;
+    padding: 16px;
+  }
+
+  .create-title {
+    font-size: 22px;
+  }
+
+  .section-title {
+    font-size: 18px;
+  }
+
+  .category-options {
+    gap: 8px;
+  }
+
+  .category-options label {
+    font-size: 13px;
+    padding: 5px 10px;
+  }
+
+  .btn--primary {
+    width: 100%;
+  }
+}
+

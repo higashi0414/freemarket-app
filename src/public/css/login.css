@@ -1,0 +1,28 @@
+.form {
+    margin-top:  40px;
+}
+
+.page-title {
+    margin-top: 60px;
+}
+
+.form__note {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.form__note a {
+  color: #007bff;     /* 青色 */
+  text-decoration: none;
+}
+
+.form__note a:hover {
+  text-decoration: underline;
+}
+
+.form__error {
+    color: red;
+    font-size: 15px;
+    margin-top: 4px;
+}

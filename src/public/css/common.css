@@ -1,0 +1,362 @@
+/* ========== Design Tokens ========== */
+:root{
+  /* Font & Base */
+  --font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", sans-serif;
+  --font-size-base: 16px;
+
+  /* Colors */
+  --color-primary: #FF5555;
+  --color-text: #222222;
+  --color-border: #DDDDDD;
+  --color-muted: #888888;
+  --color-bg: #ffffff;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+
+  /* Shadow */
+  --shadow-card: 0 1px 2px rgba(0,0,0,0.06);
+
+  /* Spacing */
+  --sp-1: 8px;
+  --sp-2: 16px;
+  --sp-3: 24px;
+  --sp-4: 32px;
+
+  /* Layout */
+  --container-max: 980px;
+  --header-h: 56px;
+}
+
+/* ========== Base Reset ========== */
+* { box-sizing: border-box; }
+html { font-size: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* ========== Layout ========== */
+.container {
+  max-width: var(--container-max);
+  margin: 40px auto;
+  padding: 0 var(--sp-2);
+}
+
+
+/* ========== Header (共通ヘッダー) ========== */
+.site-header {
+  height: var(--header-h);
+  background: #000;
+  border-bottom: none;
+  color: #fff;
+}
+
+.site-header__nav a {
+    color: #fff;
+}
+
+.site-header__inner{
+  max-width: calc(var(--container-max) + 120px);
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 var(--sp-2);
+  display: grid;
+  grid-template-columns: 160px 1fr auto;
+  align-items: center;
+  gap: var(--sp-2);
+}
+.site-header__logo{
+  font-weight: 800;
+  letter-spacing: .5px;
+  white-space: nowrap;
+}
+.site-header__search input{
+  width: 100%;
+  height: 36px;
+  padding: 0 12px;
+  border: 2px solid #000;
+  border-radius: var(--radius-sm);
+}
+.site-header__nav{
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+.btn--outline{
+  background: #fff;
+  color: #000;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 6px 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ========== Guest Header (ログイン・会員登録用のシンプルヘッダー) ========== */
+.site-header--guest .site-header__inner{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0;
+}
+
+.site-header__logo img{
+  display: block;
+}
+
+/* ========== Guest Header (ログイン/会員登録など) ========== */
+.site-header--guest {
+  background: #000;
+  border-bottom: none;
+}
+
+.site-header--guest .site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: var(--header-h);
+}
+
+
+/* ========== Page Title (見出し) ========== */
+.page-title{
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 28px 0 24px;
+}
+
+/* ========== Forms (共通フォーム) ========== */
+.form{
+  max-width: 680px;
+  margin: 0 auto;
+}
+.form__group{ margin-bottom: 18px; }
+.form__label{
+  display: block;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.form__input{
+  width: 100%;
+  height: 40px;
+  padding: 0 10px;
+  border: 1px solid #BBB;
+  border-radius: 2px;
+  background: #fff;
+}
+.form__actions{ margin-top: 24px; }
+
+/* ========== Buttons (共通ボタン) ========== */
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+.btn--primary{
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+.form__submit{
+  width: 100%;
+  height: 60px;
+  font-weight: 700;
+}
+
+/* ========== Tabs (おすすめ / マイリスト) ========== */
+.tabs{
+  display: flex;
+  gap: 24px;
+  padding: 8px 0 14px;
+  border-bottom: 1px solid var(--color-border);
+}
+.tabs__item{
+  background: none;
+  border: none;
+  padding: 6px 0;
+  font-weight: 700;
+  color: var(--color-muted);
+  cursor: pointer;
+}
+.tabs__item.is-active{ color: #E14141; }
+
+/* ========== Item Cards (商品カード共通) ========== */
+.items-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  margin-top: 28px;
+}
+.item-card{ color: inherit; }
+.item-card__thumb{
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #DDD;
+  border-radius: 8px;
+  box-shadow: var(--shadow-card);
+  display: grid;
+  place-items: center;
+}
+.item-card__name{
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+/* ========== Utility ========== */
+.text-center{ text-align: center; }
+.mt-24{ margin-top: 24px; }
+.mb-24{ margin-bottom: 24px; }
+
+/* ========== Header Nav (ログアウト・マイページ・出品) ========== */
+.site-header__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.site-header__nav a,
+.site-header__nav button {
+  background: none !important; /* ← デフォルトのグレーを消す */
+  border: none !important;     /* ← 枠線を消す */
+  color: #fff;                 /* 白文字 */
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+}
+
+.site-header__nav a:hover,
+.site-header__nav button:hover {
+  text-decoration: underline;
+}
+
+.site-header__logout {
+  display: inline; /* form を横並びに */
+}
+
+/* 出品ボタン専用 */
+.site-header__nav a.header__sell {
+  display: inline-block;
+  background-color: #fff !important;  /* ← 白背景を強制 */
+  color: #000 !important;             /* ← 黒文字を強制 */
+  border: 1px solid #000 !important;  /* ← 黒枠を強制 */
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.site-header__nav a.header__sell:hover {
+  background-color: #000 !important;  /* 黒背景 */
+  color: #fff !important;             /* 白文字 */
+}
+
+/* ===============================
+   ヘッダーのレスポンシブ対応（教材要件用・最終完成版）
+=============================== */
+
+/* --- PC (1400px以上) --- */
+@media screen and (min-width: 1400px) {
+  .site-header__inner {
+    max-width: 1540px;
+    margin: 0 auto;
+    padding: 0 24px;
+    grid-template-columns: 160px 1fr auto;
+  }
+}
+
+/* --- タブレット (768〜850px) --- */
+@media screen and (max-width: 850px) and (min-width: 768px) {
+  .site-header__inner {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* ロゴ（左上固定） */
+  .site-header__logo {
+    flex: 0 0 auto;
+    order: 1;
+  }
+
+  /* ナビ（中央・ボタン類） */
+  .site-header__nav {
+    order: 2;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    flex: 1 1 auto;
+  }
+
+  /* 検索フォーム */
+  .site-header__search {
+    flex: 1 1 100%;
+    order: 3;
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .site-header__search input {
+    width: 50%;
+    max-width: 500px;
+    height: 34px;
+    display: block;
+    box-sizing: border-box;
+  }
+}
+
+/* ===============================
+   ページ全体の横スクロール防止（安全設計）
+=============================== */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden; /* 横スクロールを完全に無効化 */
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+/* ===============================
+   ヘッダー右見切れ防止（追加安全余白）
+=============================== */
+@media screen and (max-width: 850px) {
+  .site-header__inner {
+    padding-right: 16px; /* 微調整で見切れ防止 */
+  }
+}
+
+
+
+
+
