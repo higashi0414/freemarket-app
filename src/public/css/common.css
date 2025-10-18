@@ -99,7 +99,7 @@ a { color: inherit; text-decoration: none; }
   cursor: pointer;
 }
 
-/* ========== Guest Header (ログイン・会員登録用のシンプルヘッダー) ========== */
+/* ========== Guest Header (ログイン・会員登録用ヘッダー) ========== */
 .site-header--guest .site-header__inner{
   display: flex;
   align-items: center;
@@ -229,9 +229,9 @@ a { color: inherit; text-decoration: none; }
 
 .site-header__nav a,
 .site-header__nav button {
-  background: none !important; /* ← デフォルトのグレーを消す */
-  border: none !important;     /* ← 枠線を消す */
-  color: #fff;                 /* 白文字 */
+  background: none !important;
+  border: none !important;
+  color: #fff;
   font: inherit;
   cursor: pointer;
   padding: 0;
@@ -244,15 +244,14 @@ a { color: inherit; text-decoration: none; }
 }
 
 .site-header__logout {
-  display: inline; /* form を横並びに */
+  display: inline;
 }
 
-/* 出品ボタン専用 */
 .site-header__nav a.header__sell {
   display: inline-block;
-  background-color: #fff !important;  /* ← 白背景を強制 */
-  color: #000 !important;             /* ← 黒文字を強制 */
-  border: 1px solid #000 !important;  /* ← 黒枠を強制 */
+  background-color: #fff !important;
+  color: #000 !important;
+  border: 1px solid #000 !important;
   padding: 6px 16px;
   border-radius: 6px;
   font-size: 14px;
@@ -262,15 +261,14 @@ a { color: inherit; text-decoration: none; }
 }
 
 .site-header__nav a.header__sell:hover {
-  background-color: #000 !important;  /* 黒背景 */
-  color: #fff !important;             /* 白文字 */
+  background-color: #000 !important;
+  color: #fff !important;
 }
 
-/* ===============================
-   ヘッダーのレスポンシブ対応（教材要件用・最終完成版）
-=============================== */
 
-/* --- PC (1400px以上) --- */
+
+
+
 @media screen and (min-width: 1400px) {
   .site-header__inner {
     max-width: 1540px;
@@ -280,7 +278,6 @@ a { color: inherit; text-decoration: none; }
   }
 }
 
-/* --- タブレット (768〜850px) --- */
 @media screen and (max-width: 850px) and (min-width: 768px) {
   .site-header__inner {
     display: flex;
@@ -294,13 +291,11 @@ a { color: inherit; text-decoration: none; }
     box-sizing: border-box;
   }
 
-  /* ロゴ（左上固定） */
   .site-header__logo {
     flex: 0 0 auto;
     order: 1;
   }
 
-  /* ナビ（中央・ボタン類） */
   .site-header__nav {
     order: 2;
     display: flex;
@@ -310,7 +305,6 @@ a { color: inherit; text-decoration: none; }
     flex: 1 1 auto;
   }
 
-  /* 検索フォーム */
   .site-header__search {
     flex: 1 1 100%;
     order: 3;
@@ -328,13 +322,10 @@ a { color: inherit; text-decoration: none; }
   }
 }
 
-/* ===============================
-   ページ全体の横スクロール防止（安全設計）
-=============================== */
 html, body {
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden; /* 横スクロールを完全に無効化 */
+  overflow-x: hidden;
 }
 
 .container {
@@ -347,12 +338,10 @@ html, body {
   overflow-x: hidden;
 }
 
-/* ===============================
-   ヘッダー右見切れ防止（追加安全余白）
-=============================== */
+
 @media screen and (max-width: 850px) {
   .site-header__inner {
-    padding-right: 16px; /* 微調整で見切れ防止 */
+    padding-right: 16px;
   }
 }
 

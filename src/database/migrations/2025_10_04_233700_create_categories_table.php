@@ -14,12 +14,11 @@ class CreateCategoriesTable extends Migration
 public function up(): void
 {
     Schema::create('categories', function (Blueprint $table) {
-        $table->id(); // 主キー
-        $table->string('name'); // カテゴリ名
-        $table->unsignedBigInteger('parent_id')->nullable(); // 親カテゴリID（NULL許可）
-        $table->timestamps(); // created_at, updated_at
+        $table->id();
+        $table->string('name');
+        $table->unsignedBigInteger('parent_id')->nullable();
+        $table->timestamps();
 
-        // 外部キー制約（親カテゴリを参照する自己リレーション）
         $table->foreign('parent_id')->references('id')->on('categories')->onDelete('cascade');
     });
 }

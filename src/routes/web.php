@@ -50,6 +50,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/items/{item}/like', [LikeController::class, 'store'])->name('like.store');
     Route::delete('/items/{item}/like', [LikeController::class, 'destroy'])->name('like.destroy');
     Route::post('/items/{item}/comments', [CommentController::class, 'store'])->name('comments.store');
+    
     Route::get('/purchase/{item}', [PurchaseController::class, 'show'])->name('purchase.show');
 
     Route::get('/purchase/address/{item}', [PurchaseController::class, 'editAddress'])
@@ -58,7 +59,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/purchase/address/{item}', [PurchaseController::class, 'updateAddress'])
         ->name('purchase.address.update');
 
-    Route::post('/purchase/{item}', [App\Http\Controllers\ItemsController::class, 'purchaseStore'])
+    Route::post('/purchase/{item}', [PurchaseController::class, 'store'])
     ->name('purchase.store');
 });
 

@@ -9,9 +9,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('purchases', function (Blueprint $table) {
-            $table->string('zipcode')->nullable()->after('item_id');   // 郵便番号
-            $table->string('address')->nullable()->after('zipcode');   // 住所
-            $table->string('building')->nullable()->after('address');  // 建物名
+            $table->string('zipcode')->nullable()->after('item_id');
+            $table->string('address')->nullable()->after('zipcode');
+            $table->string('building')->nullable()->after('address');
         });
     }
 

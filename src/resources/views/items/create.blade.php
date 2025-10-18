@@ -81,7 +81,7 @@
 <script>
 document.getElementById('image').addEventListener('change', function (event) {
     const preview = document.getElementById('preview');
-    preview.innerHTML = ''; // 以前の画像をクリア
+    preview.innerHTML = '';
     const file = event.target.files[0];
     if (file) {
         const reader = new FileReader();

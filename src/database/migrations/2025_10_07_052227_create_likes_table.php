@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('item_id')->constrained()->onDelete('cascade');
             $table->timestamps();
 
-            $table->unique(['user_id', 'item_id']); // 同じ商品を重複して「いいね」できないように
+            $table->unique(['user_id', 'item_id']);
         });
     }
 

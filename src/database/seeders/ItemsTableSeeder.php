@@ -117,16 +117,16 @@ class ItemsTableSeeder extends Seeder
             'user_id' => 1,
         ]);
 
-        $item1->categories()->attach([1, 5]); // 腕時計 → ファッション・メンズ
-        $item2->categories()->attach([2, 3]);    // HDD → 家電
-        $item3->categories()->attach([10]);    // 玉ねぎ → 食品
-        $item4->categories()->attach([1, 2]); // 革靴 → ファッション・メンズ
-        $item5->categories()->attach([2]); //ノートPC
-        $item6->categories()->attach([2]); //マイク
-        $item7->categories()->attach([1, 4]); //ショルダーバッグ
-        $item8->categories()->attach([3, 10]); //タンブラー
-        $item9->categories()->attach([3, 10, 11]); //コーヒーミル
-        $item10->categories()->attach([1, 4, 6]); //メイクセット
+        $item1->categories()->attach([1, 5]);
+        $item2->categories()->attach([2, 3]);
+        $item3->categories()->attach([10]);
+        $item4->categories()->attach([1, 2]);
+        $item5->categories()->attach([2]);
+        $item6->categories()->attach([2]);
+        $item7->categories()->attach([1, 4]);
+        $item8->categories()->attach([3, 10]);
+        $item9->categories()->attach([3, 10, 11]);
+        $item10->categories()->attach([1, 4, 6]);
 
     }
 }

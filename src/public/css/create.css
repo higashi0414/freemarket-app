@@ -116,9 +116,9 @@ textarea.form-input {
   color: #fff;
 }
 
-/* =========================
-   PC (1400px～)
-========================= */
+
+
+
 @media (min-width: 1400px) {
   .create-wrapper {
     max-width: 700px;
@@ -138,9 +138,7 @@ textarea.form-input {
   }
 }
 
-/* =========================
-   タブレット (768～850px)
-========================= */
+
 @media (max-width: 850px) and (min-width: 768px) {
   .create-wrapper {
     max-width: 90%;

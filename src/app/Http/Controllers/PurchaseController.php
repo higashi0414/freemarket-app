@@ -54,8 +54,32 @@ class PurchaseController extends Controller
             'building' => $request->building,
         ]);
 
-        // 購入画面にリダイレクト
         return redirect()->route('purchase.show', ['item' => $item->id])
                          ->with('success', '配送先住所を更新しました。');
     }
+
+    public function store(Request $request, Item $item)
+    {
+        $user = Auth::user();
+        $request->validate([
+            'payment' => 'required|in:card,convenience',
+            ], [
+                'payment.required' => '支払い方法を選択してください。',
+                'payment.in' => '正しい支払い方法を選択してください。',
+            ]);
+        Purchase::firstOrCreate([
+            'user_id' => $user->id,
+            'item_id' => $item->id,
+        ], [
+            'payment_method' => $request->payment,
+            'zipcode' => $user->zipcode,
+            'address' => $user->address,
+            'building' => $user->building,
+    ]);
+        $item->update(['is_sold' => true]);
+        return redirect()
+        ->route('mypage.index')
+        ->with('success', '購入が完了しました！');
+    }
 }
+

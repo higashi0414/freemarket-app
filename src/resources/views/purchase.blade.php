@@ -23,14 +23,20 @@
        </div>
        <hr class="sep">
 
-    <div class="purchase-method">
-      <h3 class="section-title">支払い方法</h3>
+      <form method="POST" action="{{ route('purchase.store', ['item' => $item->id]) }}">
+         @csrf
 
-      <select id="payment" name="payment" class="form-input">
+      <div class="purchase-method">
+        <h3 class="section-title">支払い方法</h3>
+        <select id="payment" name="payment" class="form-input">
           <option value="">選択してください</option>
           <option value="card">カード支払い</option>
           <option value="convenience">コンビニ払い</option>
         </select>
+
+        @if ($errors->has('payment'))
+            <p class="error-message">{{ $errors->first('payment')}}</p>
+        @endif
       </div>
       <hr class="sep">
 
@@ -72,11 +78,9 @@
           @if ($item->is_sold)
               <button type="button" class="btn btn--disabled" disabled>販売済み</button>
           @else
-          <form method="POST" action="{{ route('purchase.store', ['item' => $item->id]) }}">
-            @csrf
             <button type="submit" class="btn btn--primary">購入する</button>
-          </form>
           @endif
+          </form>
         </div>
     </div>
 

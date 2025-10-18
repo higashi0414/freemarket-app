@@ -19,7 +19,7 @@ class CreateCategoryItemTable extends Migration
          $table->foreignId('category_id')->constrained()->onDelete('cascade');
          $table->timestamps();
 
-         $table->unique(['item_id', 'category_id']); // 重複登録防止
+         $table->unique(['item_id', 'category_id']);
       });
     }
 

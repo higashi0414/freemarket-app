@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (file) {
                 const reader = new FileReader();
                 reader.onload = function(e) {
-                    preview.src = e.target.result; // 選んだ画像をプレビュー表示
+                    preview.src = e.target.result;
                 };
                 reader.readAsDataURL(file);
             }

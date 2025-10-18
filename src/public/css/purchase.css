@@ -144,6 +144,12 @@
     margin: 24px 0;
 }
 
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
 
 /* =========================
    PC (1400px～)

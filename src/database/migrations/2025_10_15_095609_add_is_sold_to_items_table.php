@@ -14,7 +14,7 @@ class AddIsSoldToItemsTable extends Migration
     public function up()
     {
         Schema::table('items', function (Blueprint $table) {
-            $table->boolean('is_sold')->default(false)->after('user_id'); // 購入済みフラグ
+            $table->boolean('is_sold')->default(false)->after('user_id');
         });
     }
 
