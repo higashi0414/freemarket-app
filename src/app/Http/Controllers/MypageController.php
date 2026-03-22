@@ -5,36 +5,60 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Purchase;
+use App\Models\Trade;
+use App\Models\Rating;
 
 class MypageController extends Controller
 {
-
     public function index(Request $request)
     {
         $user = Auth::user();
         $page = $request->query('page', 'sell');
 
-        if ($page === 'buy'){
+        $sellItems = collect();
+        $buyItems = collect();
+        $tradeItems = collect();
+
+        $rawAverageScore = Rating::where('to_user_id', $user->id)->avg('score');
+        $averageScore = is_null($rawAverageScore) ? null : round($rawAverageScore);
+
+        if ($page === 'buy') {
             $buyItems = Purchase::where('user_id', $user->id)
                 ->with('item')
                 ->get()
                 ->pluck('item');
-
-            $sellItems = collect();
+        } elseif ($page === 'trade') {
+            $tradeItems = Trade::with(['item', 'seller', 'buyer'])
+                ->where(function ($query) use ($user) {
+                    $query->where('seller_id', $user->id)
+                          ->orWhere('buyer_id', $user->id);
+                })
+                ->withCount(['messages as unread_messages_count' => function ($query) use ($user) {
+                    $query->where('user_id', '!=', $user->id)
+                          ->whereNull('read_at');
+                }])
+                ->orderByDesc('updated_at')
+                ->get();
         } else {
             $sellItems = $user->items()->get();
-            $buyItems = collect();
         }
-        return view('mypage', compact('user', 'sellItems', 'buyItems', 'page'));
-    }
 
+        return view('mypage', compact(
+            'user',
+            'sellItems',
+            'buyItems',
+            'tradeItems',
+            'page',
+            'averageScore'
+        ));
+    }
 
     public function edit()
     {
         $user = Auth::user();
+
         return view('mypage_profile', compact('user'));
     }
-
 
     public function update(Request $request)
     {
@@ -48,7 +72,6 @@ class MypageController extends Controller
             'avatar' => 'nullable|image|max:2048',
         ]);
 
-
         if ($request->hasFile('avatar')) {
             $path = $request->file('avatar')->store('avatars', 'public');
             $user->avatar = $path;
@@ -61,6 +84,6 @@ class MypageController extends Controller
 
         $user->save();
 
-        return redirect()->route('mypage.index')->with('success', 'プロフィールを更新しました！');
+        return redirect()->route('mypage')->with('success', 'プロフィールを更新しました！');
     }
 }

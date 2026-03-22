@@ -74,7 +74,7 @@ class ItemsTableSeeder extends Seeder
             'description' => '高音質のレコーディング用マイク',
             'image' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/Music+Mic+4632231.jpg',
             'condition' => '目立った傷や汚れなし',
-            'user_id' => 1,
+            'user_id' => 2,
         ]);
         
          $item7 = Item::create([
@@ -84,7 +84,7 @@ class ItemsTableSeeder extends Seeder
             'description' => 'おしゃれなショルダーバッグ',
             'image' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/Purse+fashion+pocket.jpg',
             'condition' => 'やや傷や汚れあり',
-            'user_id' => 1,
+            'user_id' => 2,
         ]);
         
          $item8 = Item::create([
@@ -94,7 +94,7 @@ class ItemsTableSeeder extends Seeder
             'description' => '使いやすいタンブラー',
             'image' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/Tumbler+souvenir.jpg',
             'condition' => '状態が悪い',
-            'user_id' => 1,
+            'user_id' => 2,
         ]);
         
          $item9 = Item::create([
@@ -104,7 +104,7 @@ class ItemsTableSeeder extends Seeder
             'description' => '手動のコーヒーミル',
             'image' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/Waitress+with+Coffee+Grinder.jpg',
             'condition' => '良好',
-            'user_id' => 1,
+            'user_id' => 2,
         ]);
         
          $item10 = Item::create([
@@ -114,7 +114,7 @@ class ItemsTableSeeder extends Seeder
             'description' => '便利なメイクアップセット',
             'image' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/%E5%A4%96%E5%87%BA%E3%83%A1%E3%82%A4%E3%82%AF%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%82%BB%E3%83%83%E3%83%88.jpg',
             'condition' => '目立った傷や汚れなし',
-            'user_id' => 1,
+            'user_id' => 2,
         ]);
 
         $item1->categories()->attach([1, 5]);

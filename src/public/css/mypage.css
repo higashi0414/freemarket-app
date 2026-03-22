@@ -21,6 +21,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .mypage__avatar-img {
@@ -32,7 +33,8 @@
 .mypage__info {
   display: flex;
   align-items: center;
-  gap: 40px;
+  justify-content: space-between;
+  gap: 24px;
 }
 
 .mypage__username {
@@ -40,6 +42,28 @@
   font-weight: bold;
   margin: 0;
 }
+
+.mypage__profile {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.mypage__rating {
+    display: flex;
+    gap: 4px;
+    font-size: 28px;
+    line-height: 1;
+}
+
+.mypage__rating span {
+    color: #d9d9d9;
+}
+
+.mypage__rating span.is-active {
+    color: #f4df3a;
+}
+
 
 .btn-edit {
   display: inline-block;
@@ -59,13 +83,17 @@
 
 .mypage__tabs {
   display: flex;
+  align-items: center;
+  gap: 24px;
   border-bottom: 1px solid #ccc;
   margin-bottom: 24px;
 }
 
 .tab {
-  margin-right: 16px;
-  padding: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 0;
   font-weight: bold;
   color: #666;
   text-decoration: none;
@@ -77,9 +105,24 @@
 }
 
 
+.tab-count {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: #ff0000;
+  color: #fff;
+  font-size: 11px;
+  line-height: 1;
+}
+
 .mypage-items-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  gap: 28px 24px;
   max-width: 980px;
   margin: 0 auto;
 }
@@ -113,16 +156,54 @@
   object-fit: cover;
 }
 
-.mypage-item-name {
-  font-size: 14px;
-  margin-top: 8px;
-  color: #333;
+.tab-count {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: #ff0000;
+  color: #fff;
+  font-size: 11px;
+  line-height: 1;
+}
+
+.mypage-items-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px 24px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+
+.mypage-item-thumb--trade {
+  position: relative;
+}
+
+.message-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 6px;
+  border-radius: 9999px;
+  background: #ff3b30;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 24px;
+  text-align: center;
+  z-index: 10;
 }
 
 
 
 @media (max-width: 768px) {
-  .items-grid {
+  .mypage-items-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 

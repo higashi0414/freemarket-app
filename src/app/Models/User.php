@@ -66,6 +66,21 @@ class User extends Authenticatable
     return $this->hasMany(Comment::class);
     }
 
+    public function sellingTrades()
+    {
+        return $this->hasMany(Trade::class, 'seller_id');
+    }
+
+    public function buyingTrades()
+    {
+        return $this->hasMany(Trade::class, 'buyer_id');
+    }
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
+
 
 
 }

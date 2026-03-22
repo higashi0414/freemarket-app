@@ -12,6 +12,7 @@ class Purchase extends Model
     protected $fillable = [
         'user_id',
         'item_id',
+        'payment_method',
         'zipcode',
         'address',
         'building',
@@ -25,5 +26,10 @@ class Purchase extends Model
     public function item()
     {
         return $this->belongsTo(\App\Models\Item::class);
+    }
+
+    public function trade()
+    {
+        return $this->hasOne(Trade::class);
     }
 }

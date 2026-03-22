@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Purchase;
 use App\Models\Item;
+use App\Models\Trade;
 use Illuminate\Support\Facades\Auth;
 
 class PurchaseController extends Controller
@@ -67,7 +68,7 @@ class PurchaseController extends Controller
                 'payment.required' => '支払い方法を選択してください。',
                 'payment.in' => '正しい支払い方法を選択してください。',
             ]);
-        Purchase::firstOrCreate([
+        $purchase = Purchase::firstOrCreate([
             'user_id' => $user->id,
             'item_id' => $item->id,
         ], [
@@ -76,9 +77,30 @@ class PurchaseController extends Controller
             'address' => $user->address,
             'building' => $user->building,
     ]);
+    
+            $purchase->update([
+            'payment_method' => $request->payment,
+            'zipcode' => $purchase->zipcode ?? $user->zipcode,
+            'address' => $purchase->address ?? $user->address,
+            'building' => $purchase->building ?? $user->building,
+        ]);
+
+        Trade::firstOrCreate(
+            [
+                'purchase_id' => $purchase->id,
+            ],
+            [
+                'item_id' => $item->id,
+                'seller_id' => $item->user_id,
+                'buyer_id' => $user->id,
+                'status' => 'trading',
+            ]
+        );
+
+
         $item->update(['is_sold' => true]);
         return redirect()
-        ->route('mypage.index')
+        ->route('mypage')
         ->with('success', '購入が完了しました！');
     }
 }

@@ -8,7 +8,7 @@
 
 @section('content')
 @php
-    use Illuminate\Support\Facades\Storage;
+    use Illuminate\Support\Str;
 @endphp
 
 <div class="mypage">
@@ -29,8 +29,19 @@
         </div>
 
         <div class="mypage__info">
-            <h2 class="mypage__username">{{ $user->name }}</h2>
-            <a href="{{ route('mypage.edit') }}" class="btn-edit">プロフィールの編集</a>
+            <div class="mypage__profile">
+                <h2 class="mypage__username">{{ $user->name }}</h2>
+
+                @if(!is_null($averageScore))
+                    <div class="mypage__rating">
+                        @for ($i = 1; $i <= 5; $i++)
+                            <span class="{{ $i <= $averageScore ? 'is-active' : '' }}">★</span>
+                        @endfor
+                    </div>
+                @endif
+            </div>
+
+            <a href="{{ route('mypage.edit') }}" class="btn-edit">プロフィールを編集</a>
         </div>
     </div>
 
@@ -46,6 +57,14 @@
         <a href="{{ url('/mypage?page=buy') }}"
            class="tab {{ $page === 'buy' ? 'is-active' : '' }}">
            購入した商品
+        </a>
+
+        <a href="{{ url('/mypage?page=trade') }}"
+           class="tab {{ $page === 'trade' ? 'is-active' : '' }}">
+           取引中の商品
+           @if(isset($tradeItems) && $tradeItems->count())
+               <span class="tab-count">{{ $tradeItems->count() }}</span>
+           @endif
         </a>
     </div>
 
@@ -90,5 +109,39 @@
             @endforelse
         </div>
     @endif
+
+    {{-- =====================
+         取引中の商品一覧
+    ===================== --}}
+@if ($page === 'trade')
+    <div class="mypage-items-grid">
+        @forelse ($tradeItems as $trade)
+            <a href="{{ route('trades.show', $trade->id) }}" class="mypage-item-card">
+                <div class="mypage-item-thumb mypage-item-thumb--trade">
+                    @if ($trade->unread_messages_count > 0)
+                        <span class="message-badge">{{ $trade->unread_messages_count }}</span>
+                    @endif
+
+                    <img src="{{ Str::startsWith($trade->item->image, 'http')
+                        ? $trade->item->image
+                        : asset('storage/' . $trade->item->image) }}"
+                        alt="{{ $trade->item->name }}">
+                </div>
+
+                <p class="item-card__name">{{ $trade->item->name }}</p>
+
+                <p class="item-card__meta">
+                    @if ($trade->seller_id === $user->id)
+                        購入者: {{ $trade->buyer->name ?? '---' }}
+                    @else
+                        出品者: {{ $trade->seller->name ?? '---' }}
+                    @endif
+                </p>
+            </a>
+        @empty
+            <p>取引中の商品はありません。</p>
+        @endforelse
+    </div>
+@endif
 </div>
 @endsection

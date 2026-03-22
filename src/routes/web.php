@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\TradeController;
+use App\Http\Controllers\MessageController;
 
 
 /*
@@ -30,7 +32,7 @@ Route::post('/items', [ItemsController::class, 'store'])->name('items.store');
 //商品購入
 Route::get('/items/purchase', [ItemsController::class, 'purchase'])->name('items.purchase');
 //マイページ
-Route::get('/mypage', [MypageController::class, 'index'])->name('mypage.index');
+Route::get('/mypage', [MypageController::class, 'index'])->name('mypage');
 //プロフィール編集
 Route::get('/mypage/profile', [MypageController::class, 'edit'])->name('mypage.edit');
 Route::put('/mypage/profile', [MypageController::class, 'update'])->name('mypage.update');
@@ -60,7 +62,16 @@ Route::middleware('auth')->group(function () {
         ->name('purchase.address.update');
 
     Route::post('/purchase/{item}', [PurchaseController::class, 'store'])
-    ->name('purchase.store');
+         ->name('purchase.store');
+
+    Route::get('/trades/{trade}', [TradeController::class, 'show'])->name('trades.show');
+    Route::post('/trades/{trade}/messages', [MessageController::class, 'store'])->name('messages.store');
+    Route::post('/trades/{trade}/complete', [TradeController::class, 'complete'])
+    ->name('trades.complete');
+    Route::post('/trades/{trade}/rating', [TradeController::class, 'storeRating'])
+    ->name('trades.rating');
+    Route::put('/messages/{message}', [MessageController::class, 'update'])->name('messages.update');
+    Route::delete('/messages/{message}', [MessageController::class, 'destroy'])->name('messages.destroy');
 });
 
 

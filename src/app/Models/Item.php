@@ -39,7 +39,7 @@ class Item extends Model
         return $this->belongsToMany(User::class, 'likes')->withTimestamps();
     }
 
-    public function purchases()
+    public function purchase()
     {
     return $this->hasOne(\App\Models\Purchase::class);
     }
@@ -47,6 +47,11 @@ class Item extends Model
     public function comments()
     {
     return $this->hasMany(Comment::class);
+    }
+
+    public function trades()
+    {
+        return $this->hasMany(Trade::class);
     }
 
 

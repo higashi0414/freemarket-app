@@ -85,7 +85,7 @@ class ItemsController extends Controller
 
         $item->categories()->attach($request->categories);
 
-        return redirect()->route('mypage.index')->with('success', '商品を出品しました！');
+        return redirect()->route('mypage')->with('success', '商品を出品しました！');
     }
 
     public function purchase()

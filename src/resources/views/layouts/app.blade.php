@@ -28,11 +28,11 @@
             @csrf
             <button type="submit">ログアウト</button>
         </form>
-        <a href="{{ route('mypage.index') }}">マイページ</a>
+        <a href="{{ route('mypage') }}">マイページ</a>
         <a href="{{ route('items.create') }}" class="header__sell">出品</a>
         @else
         <a href="{{ route('login') }}">ログイン</a>
-        <a href="{{ route('mypage.index') }}">マイページ</a>
+        <a href="{{ route('mypage') }}">マイページ</a>
         <a href="{{ route('items.create') }}" class="header__sell">出品</a>
         @endif
 
